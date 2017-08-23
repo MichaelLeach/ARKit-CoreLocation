@@ -118,7 +118,9 @@ public class SceneLocationView: ARSCNView, ARSCNViewDelegate {
     public func run() {
         // Create a session configuration
 		let configuration = ARWorldTrackingConfiguration()
-        configuration.planeDetection = .horizontal
+        
+        // Disable plane detection to fix crash on ARKit removing Anchors
+        //configuration.planeDetection = .horizontal
         
         if orientToTrueNorth {
             configuration.worldAlignment = .gravityAndHeading
